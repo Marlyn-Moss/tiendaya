@@ -1,0 +1,69 @@
+:root {
+  --oscuro: #2e4520;
+  --claro: #f7f4ea;
+  --acento: #9dba55;
+  --acento-texto: #52711f;
+  --tarjeta: #fffdf8;
+  --linea: #e2dcc8;
+  --cuerpo: #4d5a44;
+  --error: #a2402c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--claro);
+  color: var(--oscuro);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.tienda { max-width: 1200px; margin: 0 auto; padding: 32px 20px; }
+.encabezado { display: flex; justify-content: space-between; align-items: center; }
+.encabezado h1 { margin: 0; font-size: 32px; }
+.encabezado p { background: var(--oscuro); color: var(--claro); padding: 6px 14px; border-radius: 999px; }
+
+.aviso { padding: 12px 16px; border-radius: 10px; font-weight: 600; }
+.aviso.error { background: #f4dcd6; color: var(--error); }
+.aviso.ok { background: #e6eed2; color: var(--acento-texto); }
+
+.contenido { display: grid; grid-template-columns: 1fr 360px; gap: 24px; margin-top: 24px; }
+@media (max-width: 860px) { .contenido { grid-template-columns: 1fr; } }
+
+.filtros { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
+.campo { display: flex; flex-direction: column; gap: 4px; }
+label { font-size: 14px; font-weight: 600; }
+input, select { padding: 8px 10px; border: 1px solid var(--linea); border-radius: 8px; font: inherit; background: var(--tarjeta); color: inherit; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.tarjeta { background: var(--tarjeta); border: 1px solid var(--linea); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.tarjeta h3 { margin: 0; font-size: 17px; }
+.tarjeta p { margin: 0; }
+.categoria { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--acento-texto); font-weight: 600; }
+.precio { font-size: 20px; font-weight: 700; }
+.stock { font-size: 13px; color: var(--cuerpo); }
+.agotado { font-size: 13px; color: var(--error); font-weight: 600; }
+
+button { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--oscuro); background: var(--oscuro); color: var(--claro); cursor: pointer; font: inherit; }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.carrito, .checkout { background: var(--tarjeta); border: 1px solid var(--linea); border-radius: 12px; padding: 18px; }
+.checkout { margin-top: 16px; display: flex; flex-direction: column; gap: 6px; }
+.checkout p[role='alert'], .cupon + .error { color: var(--error); margin: 0; font-size: 14px; }
+.checkout button { margin-top: 10px; }
+.carrito h2, .checkout h2 { margin-top: 0; font-size: 20px; }
+.items { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.items li { display: grid; grid-template-columns: 1fr auto auto; gap: 6px 10px; align-items: center; }
+.items .nombre { grid-column: 1 / -1; font-weight: 600; }
+.cantidad { display: flex; gap: 6px; align-items: center; }
+.cantidad button { padding: 2px 10px; }
+.quitar { background: transparent; color: var(--error); border-color: var(--error); padding: 4px 10px; }
+.cupon { display: flex; gap: 8px; align-items: end; flex-wrap: wrap; margin-top: 12px; }
+.cupon label { width: 100%; }
+.cupon input { flex: 1; }
+.ok { color: var(--acento-texto); }
+.error { color: var(--error); }
+.totales div { display: flex; justify-content: space-between; margin: 6px 0; }
+.totales dd { margin: 0; }
+.totales .total { border-top: 1px solid var(--linea); padding-top: 8px; font-weight: 700; font-size: 18px; }
+.vacio { color: var(--cuerpo); }
